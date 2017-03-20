@@ -1,6 +1,6 @@
 {
   "name": "map-scale",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Human readable Map Scale based on zoom level",
   "main": "index.js",
   "types": "index.d.ts",
