@@ -1,0 +1,50 @@
+{
+  "name": "map-scale",
+  "version": "1.0.0",
+  "description": "Human readable Map Scale based on zoom level",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "docs"
+  ],
+  "scripts": {
+    "prepublish": "npm run test && npm run build && npm run docs",
+    "pretest": "npm run lint",
+    "test": "node test.js",
+    "bench": "node bench.js",
+    "lint": "eslint index.js",
+    "build": "npm run rollup && npm run uglify",
+    "docs": "documentation readme index.js --shallow --section=Quickstart",
+    "rollup": "rollup -c rollup.config.js",
+    "uglify": "uglifyjs docs/map-scale.js -c -m > docs/map-scale.min.js"
+  },
+  "keywords": [
+    "scale",
+    "map",
+    "zoom",
+    "level"
+  ],
+  "author": "Denis Carriere <@DenisCarriere>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^7.0.8",
+    "benchmark": "^2.1.3",
+    "documentation": "^4.0.0-beta.18",
+    "eslint": "^3.18.0",
+    "eslint-config-mourner": "^2.0.1",
+    "rollup": "^0.41.6",
+    "rollup-plugin-commonjs": "^8.0.2",
+    "rollup-plugin-json": "^2.1.0",
+    "rollup-plugin-node-builtins": "^2.1.0",
+    "rollup-plugin-node-globals": "^1.1.0",
+    "rollup-plugin-node-resolve": "^2.0.0",
+    "tape": "^4.6.3",
+    "typescript": "^2.2.1",
+    "uglifyjs": "^2.4.10"
+  },
+  "dependencies": {
+    "humanize-plus": "^1.8.2"
+  }
+}
