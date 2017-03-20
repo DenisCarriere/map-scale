@@ -601,15 +601,12 @@ var index = function (zoom) {
         29: 1,
         30: 1
     };
-    // Zoom has decimals
-    var value;
-    if (zoom % 1 > 0) {
-        var basezoom = Math.floor(zoom);
-        var difference = (lookup[basezoom] - lookup[basezoom + 1]) * (zoom % 1);
-        value = lookup[basezoom] - difference;
-    } else {
-        value = lookup[zoom];
-    }
+    // Handle zooms with decimals
+    var basezoom = Math.floor(zoom);
+    var difference = (lookup[basezoom] - lookup[basezoom + 1]) * (zoom % 1);
+    var value = lookup[basezoom] - difference;
+
+    // Humanize scale
     var compact = humanize.compactInteger(value, 0);
     return '1:' + compact.toUpperCase();
 };
